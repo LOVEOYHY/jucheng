@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div class="homeshowlistitem"
-            v-for = "info in homeshowlistitemInfo" 
-            :key="info.id" 
-        >
+        <div @click="goToDetails" class="homeshowlistitem">
             <img :src = "info.pic" alt="">
             <div>{{info.show_name}}</div>
             <p>
@@ -16,19 +13,18 @@
 
 <script>
 export default {
-    data () {
-        return {
-            homeshowlistitemInfo: []
+    props: ['info'],
+    methods: {
+        goToDetails () {
+            this.$router.push({name: 'details', params: { 
+                id: this.info.id, 
+                name: this.info.show_name,  
+                pic: this.info.pic,
+                show_time: this.info.display_show_time,
+                city: this.info.venue_name,
+                price: this.info.show_price
+            }})
         }
-    },
-    beforeCreate () {
-        this.$http({
-            url: "/jucheng/index/hotsShowList",
-            method: "post",
-            react: false
-        }).then( result => {
-            this.homeshowlistitemInfo = result
-        } )
     }
 }
 </script>

@@ -1,5 +1,7 @@
 <template>
-    <div class="seckillswiper">
+    <div class="seckillswiper"
+      v-if = "seckillInfo"
+    >
         <p class="seckillswiper--title">限时秒杀</p>
         <swiper :options="swiperOption" ref="mySwiper">
             <!-- slides -->
@@ -40,14 +42,13 @@ export default {
       seckillInfo: []
     };
   },
-  beforeCreate() {
-    this.$http({
+  async beforeCreate() {
+    let result = await this.$http({
       url: "/jucheng/index/getNationalSeckill",
       method: "post",
       react: false
-    }).then(result => {
-      this.seckillInfo = result.secKillInfo;
-    });
+    })
+    this.seckillInfo = result.secKillInfo;
   },
   computed: {
     swiper() {

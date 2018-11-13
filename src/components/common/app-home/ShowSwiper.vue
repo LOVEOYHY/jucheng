@@ -6,9 +6,9 @@
         </div>
         <swiper :options="swiperOption" ref="mySwiper">
             <!-- slides -->
-            <swiper-slide class="showswiper__item"
+            <swiper-slide
                 v-for = "info in showinfo"
-                :key = "info.ticket_id"
+                :key = "info.show_id"
             >
                 <div class="showswiper__item__picture">
                     <img :src = "info.pic">
@@ -22,25 +22,22 @@
 export default {
   data() {
     return {
+      showinfo: [],
       swiperOption: {
-        pagination: {
-        //   slidesPerView: "auto",
-          slidesPerView: 3,
+          slidesPerView: "auto",
+        //   slidesPerView: 3,
         //   freeMode: true,
-        }
       },
-      showinfo: []
     };
   },
-  beforeCreate() {
-    this.$http({
+  async beforeCreate() {
+    let result = await this.$http({
       url: "/jucheng/Tour/ShowList",
       method: "post",
       react: false
-    }).then(result => {
-      this.showinfo = result;
+    })
+    this.showinfo = result;
     //   console.log(result)
-    });
   },
   computed: {
     swiper() {
@@ -74,8 +71,8 @@ export default {
                 text-align: right;
             }
         }
-        .showswiper__item{
-            width: 3rem!important;
+        .swiper-slide{
+            width: 3rem;
             height:3.906667rem;
             margin-right: .133333rem;          
         }

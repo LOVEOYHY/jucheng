@@ -5,7 +5,11 @@
             <div class="homeshowlist__title--right"></div>
         </div>
         <div class="homeshowlist__body">
-            <home-show-list-item></home-show-list-item>
+            <home-show-list-item
+                v-for = "info in homeshowlistitemInfo"
+                :key="info.id"
+                :info = "info"
+            ></home-show-list-item>
         </div>
         <p class="homeshowlist__footer">
             查看全部演出&nbsp;>
@@ -18,6 +22,19 @@ import HomeShowListItem from '@c/common/app-home/HomeShowListItem'
 export default {
     components:{
         HomeShowListItem
+    },
+    data () {
+        return {
+            homeshowlistitemInfo: []
+        }
+    },
+    async beforeCreate () {
+        let result = await this.$http({
+            url: "/jucheng/index/hotsShowList",
+            method: "post",
+            react: false
+        })
+        this.homeshowlistitemInfo = result
     }
     
 }

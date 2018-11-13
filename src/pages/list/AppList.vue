@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="applist">
         <header>
             <list-header></list-header>
         </header>
@@ -17,7 +17,7 @@ import ListHeader from '@c/common/app-list/ListHeader'
 import ListBody from '@c/common/app-list/ListBody'
 import AppFooter from '@c/layout/AppFooter'
 export default {
-    component: {
+    components: {
         ListHeader,
         ListBody,
         AppFooter
@@ -26,5 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+    .applist{
+        
+    }
 </style>

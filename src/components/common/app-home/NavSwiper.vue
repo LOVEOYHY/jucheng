@@ -33,8 +33,8 @@ export default {
       navswiperdata: []
     };
   },
-  beforeCreate() {
-    this.$http({
+  async beforeCreate() {
+    let result = await this.$http({
       url: "/jucheng/index/getNationalSildeList",
       method: "post",
       // body: FormData,
@@ -45,9 +45,8 @@ export default {
         limit: 6
       }),
       react: false
-    }).then(result => {
-      this.navswiperdata = result;
-    });
+    })
+    this.navswiperdata = result;
   },
   computed: {
     swiper() {
