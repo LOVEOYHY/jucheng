@@ -1,9 +1,9 @@
 <template>
     <div class="appdetails">
         <div class="appdetails__header">
-            <i>《</i>
+            <i @click = "back" class="fa fa-chevron-left fa-lg"></i>
             <p>演出详情</p>
-            <i>2</i>
+            <i class="fa fa-space-shuttle fa-lg"></i>
         </div>
         <div class="appdetails__body">
             <div class="appdetails__body--poster">
@@ -44,7 +44,7 @@
         </div>
         <div class="appdetails__footer">
             <div>
-                <i>1</i>
+                <i class="fa fa-user-circle-o fa-lg"></i>
                 <span>客服</span>
             </div>
             <p>立即购票</p>
@@ -62,6 +62,11 @@ export default {
     // beforeCreate () {
     //     console.log(this.$route.params)
     // }
+    methods: {
+        back () {
+            window.history.go(-1)
+        }
+    }
 
 }
 </script>

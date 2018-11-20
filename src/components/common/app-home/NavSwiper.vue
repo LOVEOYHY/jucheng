@@ -1,5 +1,5 @@
 <template>
-    <div class="navswiper">
+    <div class="navswiper" v-if="this.$store.state.chunks.city.is_City == 0">
         <swiper v-if = "navswiperdata.length" :options="swiperOption" ref="mySwiper" >
             <!-- slides -->
             <swiper-slide
@@ -19,6 +19,7 @@
 
 <script>
 import qs from "qs";
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -33,21 +34,43 @@ export default {
       navswiperdata: []
     };
   },
-  async beforeCreate() {
-    let result = await this.$http({
-      url: "/jucheng/index/getNationalSildeList",
-      method: "post",
-      // body: FormData,
-      // content-type: application/x-www-form-urlencoded; charset=UTF-8,
-      data: qs.stringify({
-        confType: "L",
-        isSymbol: 1,
-        limit: 6
-      }),
-      react: false
-    })
-    this.navswiperdata = result;
-  },
+  watch: {
+        '$store.state.chunks.city': {
+            immediate: true,
+            handler (val) {
+                if ( !val.cityId ) return false
+                this.$http({
+                    url: "/jucheng/index/getNationalSildeList",
+                    method: "post",
+                    data: qs.stringify({
+                      city_id: this.$store.state.chunks.city.cityId,
+                      confType: "L",
+                      isSymbol: 1,
+                      limit: 6
+                    }),
+                    react: false
+                }).then(result => {
+                    this.navswiperdata = result
+                    console.log(this.$store.state.chunks.city.is_City)
+                })
+            }
+        }
+    },
+  // async beforeCreate() {
+  //   let result = await this.$http({
+  //     url: "/jucheng/index/getNationalSildeList",
+  //     method: "post",
+  //     // body: FormData,
+  //     // content-type: application/x-www-form-urlencoded; charset=UTF-8,
+  //     data: qs.stringify({
+  //       confType: "L",
+  //       isSymbol: 1,
+  //       limit: 6
+  //     }),
+  //     react: false
+  //   })
+  //   this.navswiperdata = result;
+  // },
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper;

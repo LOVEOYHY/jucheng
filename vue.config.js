@@ -16,6 +16,20 @@ module.exports = {
           pathRewrite: {
             '^/jucheng' : ''
           }
+        },
+        '/mz': {
+          target: 'https://m.maizuo.com/',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/mz' : ''
+          }
+        },
+        '/bd': {
+          target: 'http://api.map.baidu.com/',
+          changeOrigin: true,
+          pathRewrite: {
+            '^/bd' : ''
+          }
         }
       }
     },
@@ -28,6 +42,7 @@ module.exports = {
             .set('@util', resolve('src/util'))
             .set('@c', resolve('src/components'))
             .set('@pages', resolve('src/pages'))
+            // .set('@store', resolve('src/store'))
             
     }
 }

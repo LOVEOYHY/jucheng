@@ -1,9 +1,9 @@
 <template>
     <div class="home-header">
-        <div class="home-header--left">
+        <router-link tag = "div" :to = "{ name: 'cities' }" class="home-header--left">
             <img src="https://m.juooo.com/public/basic/Home/app/app-juooo5/images/index/location.png" alt="">
-            <span>全国</span>
-        </div>
+            <span>{{chunks.city.cityName}}</span>
+        </router-link>
         <div class="home-header--right">
             搜索演出、艺人或场馆
         </div>
@@ -11,13 +11,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+// import { CHANGE_CITY } from '@/store/chunks/mutation-type'
+// import { CHANGE_CITY } from '@/store/chunks/mutation-type'
+
 export default {
-    
+    computed: mapState(['chunks']),
 }
 </script>
 
 <style lang="scss">
     .home-header{
+        box-sizing: border-box;
         height: 1.16rem;
         width: 100%;
         padding: 0 .4rem;
@@ -30,7 +35,7 @@ export default {
         z-index: 5;
         background: #fff;
         .home-header--left{
-            flex-grow: 0 0 auto;
+            flex: 0 0 auto;
             width: auto;
             padding: 0 .8rem 0 0;
             display: flex;
@@ -48,7 +53,7 @@ export default {
             }
         }
         .home-header--right{
-            flex-grow: 1 1 auto;
+            flex: 1 1 auto;
             height: .8rem;
             line-height: .8rem;
             padding-left: .826667rem;

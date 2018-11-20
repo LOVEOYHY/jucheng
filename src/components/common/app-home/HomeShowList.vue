@@ -1,41 +1,68 @@
 <template>
     <div class="homeshowlist">
-        <div class="homeshowlist__title">
-            热门演出
-            <div class="homeshowlist__title--right"></div>
+        <div v-if="homeshowlistitemInfo.length">
+            <div class="homeshowlist__title">
+                热门演出
+                <div class="homeshowlist__title--right"></div>
+            </div>
+            <div class="homeshowlist__body">
+                <home-show-list-item
+                    v-for = "info in homeshowlistitemInfo"
+                    :key="info.id"
+                    :info = "info"
+                ></home-show-list-item>
+            </div>
+            <router-link tag = "p" :to = "{ name : 'list' }" class="homeshowlist__footer">
+                查看全部演出&nbsp;>
+            </router-link>
         </div>
-        <div class="homeshowlist__body">
-            <home-show-list-item
-                v-for = "info in homeshowlistitemInfo"
-                :key="info.id"
-                :info = "info"
-            ></home-show-list-item>
-        </div>
-        <p class="homeshowlist__footer">
-            查看全部演出&nbsp;>
-        </p>
+        <app-empty v-else></app-empty>
     </div>
 </template>
 
 <script>
+import qs from 'qs'
+import { mapState } from 'vuex'
 import HomeShowListItem from '@c/common/app-home/HomeShowListItem'
+import AppEmpty from '@c/layout/AppEmpty'
 export default {
     components:{
-        HomeShowListItem
+        HomeShowListItem,
+        AppEmpty
     },
     data () {
         return {
             homeshowlistitemInfo: []
         }
     },
-    async beforeCreate () {
-        let result = await this.$http({
-            url: "/jucheng/index/hotsShowList",
-            method: "post",
-            react: false
-        })
-        this.homeshowlistitemInfo = result
-    }
+    watch: {
+        '$store.state.chunks.city': {
+            immediate: true,
+            handler (val) {
+                if ( !val.cityId ) return false
+                this.$http({
+                    url: "/jucheng/index/hotsShowList",
+                    method: "post",
+                    data: qs.stringify({
+                        city_id: this.$store.state.chunks.city.cityId
+                    }),
+                    react: false
+                }).then(result => {
+                    this.homeshowlistitemInfo = result
+                    
+                })
+                
+            }
+        }
+    },
+    // async beforeCreate () {
+    //     let result = await this.$http({
+    //         url: "/jucheng/index/hotsShowList",
+    //         method: "post",
+    //         react: false
+    //     })
+    //     this.homeshowlistitemInfo = result
+    // }
     
 }
 </script>

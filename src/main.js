@@ -14,6 +14,8 @@ import '@libs'
 // 引入路由工具
 import router from './router'
 
+// 引入store
+import store from '@/store'
 
 Vue.config.productionTip = false
 
@@ -21,5 +23,6 @@ Vue.config.productionTip = false
 // 根实例
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

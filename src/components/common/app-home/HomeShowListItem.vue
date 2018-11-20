@@ -1,7 +1,7 @@
 <template>
     <div>
         <div @click="goToDetails" class="homeshowlistitem">
-            <img :src = "info.pic" alt="">
+            <img v-lazy = "info.pic" alt="">
             <div>{{info.show_name}}</div>
             <p>
                 <span>{{info.display_show_time}}</span>

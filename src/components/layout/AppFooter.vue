@@ -2,19 +2,19 @@
     <div class="homefooter">
         <div class="homefooter__item">
             <router-link active-class="active" :to = "{name: 'home'}">
-                <i>1</i>
+                <i class="fa fa-snowflake-o fa-lg"></i>
                 <p>首页</p>
             </router-link>
         </div>
         <div class="homefooter__item">
             <router-link active-class="active" :to = "{name: 'list'}">
-                <i>2</i>
+                <i class="fa fa-coffee fa-lg"></i>
                 <p>演出库</p>
             </router-link>
         </div>
         <div class="homefooter__item">
-            <router-link active-class="active" :to = "{name: 'mine'}">
-                <i>3</i>
+            <router-link active-class="active" :to = "{name: 'user-info'}">
+                <i class="fa fa-smile-o fa-lg"></i>
                 <p>我的</p>
             </router-link>
         </div>

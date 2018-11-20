@@ -1,5 +1,7 @@
 <template>
-    <div class="showswiper">
+    <div class="showswiper"
+        v-if = "showinfo.length"
+    >
         <div class="showswiper__title">
             巡回演出
             <p>更多巡演></p>
@@ -19,6 +21,8 @@
 </template>
 
 <script>
+import qs from 'qs'
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -30,15 +34,34 @@ export default {
       },
     };
   },
-  async beforeCreate() {
-    let result = await this.$http({
-      url: "/jucheng/Tour/ShowList",
-      method: "post",
-      react: false
-    })
-    this.showinfo = result;
-    //   console.log(result)
-  },
+   watch: {
+        '$store.state.chunks.city': {
+            immediate: true,
+            handler (val) {
+                if ( !val.cityId ) return false
+                this.$http({
+                    url: "/jucheng/Tour/ShowList",
+                    method: "post",
+                    data: qs.stringify({
+                        city_id: this.$store.state.chunks.city.cityId
+                    }),
+                    react: false
+                }).then(result => {
+                    this.showinfo = result
+                })
+                
+            }
+        }
+    },
+//   async beforeCreate() {
+//     let result = await this.$http({
+//       url: "/jucheng/Tour/ShowList",
+//       method: "post",
+//       react: false
+//     })
+//     this.showinfo = result;
+//     //   console.log(result)
+//   },
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper;
@@ -74,7 +97,15 @@ export default {
         .swiper-slide{
             width: 3rem;
             height:3.906667rem;
-            margin-right: .133333rem;          
+            margin-right: .133333rem;
+            .showswiper__item__picture{
+                height: 100%;
+                width: 100%;
+                img{
+                    height: 100%;
+                    width: 100%;
+                }
+            }          
         }
     }
 </style>

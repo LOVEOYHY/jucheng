@@ -35,9 +35,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        pagination: {
-          slidesPerView: "auto"
-        }
+        slidesPerView: "auto"
       },
       seckillInfo: []
     };
@@ -74,7 +72,7 @@ export default {
     margin-bottom: 0.333333rem;
   }
   .seckillswiper__item {
-    width: 9.466667rem!important;
+    width: 9.466667rem;
     .seckillswiper__silde {
       width: 9.333333rem;
       display: flex;

@@ -111,6 +111,14 @@
   dependencies:
     "@babel/types" "^7.0.0"
 
+"@babel/helper-module-imports@7.0.0-beta.35":
+  version "7.0.0-beta.35"
+  resolved "https://registry.yarnpkg.com/@babel/helper-module-imports/-/helper-module-imports-7.0.0-beta.35.tgz#308e350e731752cdb4d0f058df1d704925c64e0a"
+  integrity sha512-vaC1KyIZSuyWb3Lj277fX0pxivyHwuDU4xZsofqgYAbkDxNieMg2vuhzP5AgMweMY7fCQUMTi+BgPqTLjkxXFg==
+  dependencies:
+    "@babel/types" "7.0.0-beta.35"
+    lodash "^4.2.0"
+
 "@babel/helper-module-imports@^7.0.0":
   version "7.0.0"
   resolved "http://registry.npm.taobao.org/@babel/helper-module-imports/download/@babel/helper-module-imports-7.0.0.tgz#96081b7111e486da4d2cd971ad1a4fe216cc2e3d"
@@ -641,6 +649,15 @@
     globals "^11.1.0"
     lodash "^4.17.10"
 
+"@babel/types@7.0.0-beta.35":
+  version "7.0.0-beta.35"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.35.tgz#cf933a9a9a38484ca724b335b88d83726d5ab960"
+  integrity sha512-y9XT11CozHDgjWcTdxmhSj13rJVXpa5ZXwjjOiTedjaM0ba5ItqdS02t31EhPl7HtOWxsZkYCCUNrSfrOisA6w==
+  dependencies:
+    esutils "^2.0.2"
+    lodash "^4.2.0"
+    to-fast-properties "^2.0.0"
+
 "@babel/types@^7.0.0", "@babel/types@^7.1.2", "@babel/types@^7.1.5":
   version "7.1.5"
   resolved "http://registry.npm.taobao.org/@babel/types/download/@babel/types-7.1.5.tgz#12fe64e91a431234b7017b4227a78cc0eec4e081"
@@ -1110,7 +1127,7 @@ array-filter@~0.0.0:
   resolved "http://registry.npm.taobao.org/array-filter/download/array-filter-0.0.1.tgz#7da8cf2e26628ed732803581fd21f67cacd2eeec"
   integrity sha1-fajPLiZijtcygDWB/SH2fKzS7uw=
 
-array-find-index@^1.0.1:
+array-find-index@^1.0.1, array-find-index@^1.0.2:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/array-find-index/download/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
   integrity sha1-3wEKoSh+Fku9pvlyOwqWoexBh6E=
@@ -1281,6 +1298,13 @@ babel-loader@^8.0.4:
     mkdirp "^0.5.1"
     util.promisify "^1.0.0"
 
+babel-plugin-component@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-component/-/babel-plugin-component-1.1.1.tgz#9b023a23ff5c9aae0fd56c5a18b9cab8c4d45eea"
+  integrity sha512-WUw887kJf2GH80Ng/ZMctKZ511iamHNqPhd9uKo14yzisvV7Wt1EckIrb8oq/uCz3B3PpAW7Xfl7AkTLDYT6ag==
+  dependencies:
+    "@babel/helper-module-imports" "7.0.0-beta.35"
+
 babel-plugin-dynamic-import-node@^2.2.0:
   version "2.2.0"
   resolved "http://registry.npm.taobao.org/babel-plugin-dynamic-import-node/download/babel-plugin-dynamic-import-node-2.2.0.tgz#c0adfb07d95f4a4495e9aaac6ec386c4d7c2524e"
@@ -1294,6 +1318,14 @@ babel-plugin-transform-vue-jsx@^4.0.1:
   integrity sha1-LIvdzoem7wnqpZhp/xv77q/F+I0=
   dependencies:
     esutils "^2.0.2"
+
+babel-runtime@^6.0.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.11.0"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -1329,6 +1361,13 @@ bcrypt-pbkdf@^1.0.0:
   integrity sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
   dependencies:
     tweetnacl "^0.14.3"
+
+better-scroll@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/better-scroll/-/better-scroll-1.13.2.tgz#31e6e088cf2d23ce48e52fad6cc59134ffeb2f56"
+  integrity sha512-JUt5aQYuHMjHNOD5JpIvNT502MlHAPXZsHoA6P2rNgLKX6WPQIoHhpwo0gT9FHgm9uTJ8wEg1HN9ZmRFJYjZLg==
+  dependencies:
+    babel-runtime "^6.0.0"
 
 bfj@^6.1.1:
   version "6.1.1"
@@ -2040,7 +2079,7 @@ copy-webpack-plugin@^4.6.0:
     p-limit "^1.0.0"
     serialize-javascript "^1.4.0"
 
-core-js@^2.5.7:
+core-js@^2.4.0, core-js@^2.5.7:
   version "2.5.7"
   resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.5.7.tgz#f972608ff0cead68b841a16a932d0b183791814e"
   integrity sha1-+XJgj/DOrWi4QaFqky0LGDeRgU4=
@@ -4357,7 +4396,7 @@ lodash.uniq@^4.5.0:
   resolved "http://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.0.0, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.5, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.5, lodash@^4.2.0, lodash@~4.17.10:
   version "4.17.11"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
   integrity sha1-s56mIp72B+zYniyN8SU2iRysm40=
@@ -4611,6 +4650,15 @@ minizlib@^1.1.1:
   integrity sha1-ZzSswEWkbmHVlqQ7udnNMm4ZzEI=
   dependencies:
     minipass "^2.2.1"
+
+mint-ui@^2.2.13:
+  version "2.2.13"
+  resolved "https://registry.yarnpkg.com/mint-ui/-/mint-ui-2.2.13.tgz#856a2cba9608c6ecf21f0e521ce89ed8ddfe33d3"
+  integrity sha512-Xz1SFagHSzKOprwQv3fcekXT5RJvhh939zwZHcWeazk1OJrCjsD4I2qm49AEUCfT1AoYzC+rsZIwGP/J6LwVVw==
+  dependencies:
+    array-find-index "^1.0.2"
+    raf.js "0.0.4"
+    vue-lazyload "^1.0.1"
 
 mississippi@^2.0.0:
   version "2.0.0"
@@ -5852,6 +5900,11 @@ querystringify@^2.0.0:
   resolved "http://registry.npm.taobao.org/querystringify/download/querystringify-2.1.0.tgz#7ded8dfbf7879dcc60d0a644ac6754b283ad17ef"
   integrity sha1-fe2N+/eHncxg0KZErGdUsoOtF+8=
 
+raf.js@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/raf.js/-/raf.js-0.0.4.tgz#f15af445d241b27fa7131a57450b67ef9c402fec"
+  integrity sha1-8Vr0RdJBsn+nExpXRQtn75xAL+w=
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.0.6"
   resolved "http://registry.npm.taobao.org/randombytes/download/randombytes-2.0.6.tgz#d302c522948588848a8d300c932b44c24231da80"
@@ -5969,6 +6022,11 @@ regenerate@^1.2.1, regenerate@^1.4.0:
   version "1.4.0"
   resolved "http://registry.npm.taobao.org/regenerate/download/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
   integrity sha1-SoVuxLVuQHfFV1icroXnpMiGmhE=
+
+regenerator-runtime@^0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+  integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
 regenerator-runtime@^0.12.0:
   version "0.12.1"
@@ -7284,10 +7342,20 @@ vue-awesome-swiper@^3.1.3:
     object-assign "^4.1.1"
     swiper "^4.0.7"
 
+vue-cookies@^1.5.7:
+  version "1.5.7"
+  resolved "https://registry.yarnpkg.com/vue-cookies/-/vue-cookies-1.5.7.tgz#44b3940b0cbb853ba3f7848f1905cb127ec45eb4"
+  integrity sha512-XAZDLIrTM7M8CaPAdUaAybQeFfRmyTAYOjAnKHe7BY9w0hJs9hpNZS41mk9Z+ElMUad5RvyAP4MIJbSoNf50Eg==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "http://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"
   integrity sha1-stPZVAKoEWAjgHg+pPVm64dVaaI=
+
+vue-lazyload@^1.0.1:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.2.6.tgz#baa04c172d52a812608eb12c7a6bfb14f5c91079"
+  integrity sha512-6a61+pzwcfowhLRQiPdmRuJ40n/4fL/sEynu8KQZoCf5RVA0NH0X68vplLY0+lUM8mKNScYomaepV+hdjgnZhg==
 
 vue-loader@^15.4.2:
   version "15.4.2"
@@ -7299,6 +7367,11 @@ vue-loader@^15.4.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-progressbar@^0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/vue-progressbar/-/vue-progressbar-0.7.5.tgz#414730892252b1e45582d4979dec93038e007f79"
+  integrity sha512-VeNG/inMsFbvdCTS7lJ1gjDAKSUZdqkhW9gS1tb0we1rqFKxR+BCEiVUgw5C84vODKb14M2GWHTw0WVdpoVg6g==
 
 vue-router@^3.0.1:
   version "3.0.1"

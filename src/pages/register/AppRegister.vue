@@ -1,41 +1,34 @@
 <template>
-    <div class="mine">
-        <p class="mine__header">
-            <i>《</i>
-            <span>注册</span>
+    <div class="register">
+        <p class="register__header">
+            <i class="fa fa-chevron-left fa-lg"></i>
+            <router-link tag="span" :to="{name: 'login'}">登录</router-link>
         </p>
-        <div class="mine__content">
-            <h1>欢迎来到聚橙网</h1>
+        <div class="register__content">
+            <h1>注册账号</h1>
             <ul>
                 <li>
-                    <input type="text" placeholder="请输入手机号/邮箱">
-                </li>
-                <li>
-                    <input type="text" placeholder="请输入密码">
+                    <input type="text" placeholder="请输入手机号">
                 </li>
             </ul>
-            <div class="mine__content--way">
-                <span>验证码登录&nbsp;></span>
-                <span>忘记密码</span>
-            </div>
-            <a >登录</a>
+            <button type="submit">下&nbsp;&nbsp;一&nbsp;&nbsp;步</button>
         </div>
-        <app-footer></app-footer>
     </div>
 </template>
 
 <script>
-import AppFooter from '@c/layout/AppFooter'
 export default {
-    components: {
-        AppFooter
+    methods: {
+        back () {
+            window.history.go(-1)
+        }
     }
 }
 </script>
 
 <style lang="scss">
-    .mine{
-        .mine__header{
+    .register{
+        .register__header{
             // width: 100%;
             height: 1.6rem;
             display: flex;
@@ -52,7 +45,7 @@ export default {
                 width: auto;
             }
         }
-        .mine__content{
+        .register__content{
             box-sizing: border-box;
             padding: .933333rem 1.106667rem 0;
             h1{
@@ -78,15 +71,16 @@ export default {
                     }
                 }
             }
-            .mine__content--way{
-                padding-top: .266667rem;
-                display: flex;
-                justify-content: space-between;
-                span{
-                    width: auto;
-                }
-            }
-            a{
+            // .register__content--way{
+            //     padding-top: .266667rem;
+            //     display: flex;
+            //     justify-content: space-between;
+            //     span{
+            //         width: auto;
+            //     }
+            // }
+            button{
+                width: 100%;
                 display: block;
                 line-height: 1.2rem;
                 text-align: center;

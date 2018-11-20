@@ -3,16 +3,16 @@
         <div class="listheader--top">
             <div class="listheader--top__location">
                 <span>全国</span>
-                <i>1</i>
+                <i class="fa fa-angle-down fa-lg"></i>
             </div>
             <div class="listheader--top__input">
                 <p>
-                    <i>2</i>
+                    <i class="fa fa-search fa-lg"></i>
                     <span>搜索演出、艺人或场馆</span>
                 </p>
             </div>
             <div class="listheader--top__screen">
-                <i>3</i>
+                <i class="fa fa-filter fa-lg"></i>
             </div>
         </div>
         <div class="listheader--bottom">
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+
+
 export default {
     data () {
         return {
@@ -42,7 +44,8 @@ export default {
                 {id: 9, name: '展览'},
             ]
         }
-    }
+    },
+    
 }
 </script>
 

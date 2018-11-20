@@ -44,11 +44,11 @@ export default {
     data(){
         return {
             activities_top:[
-                { id:1, img:'http://image.juooo.com/group1/M00/01/9B/rAoKmVvFUxWAVCq7AAA1AYjHYo4689.png', title:'演唱会' },
-                { id:2, img:'http://image.juooo.com/group1/M00/02/45/rAoKNVvFUyCATRKeAAAs7TXa0as743.png', title:'音乐会' },
-                { id:3, img:'http://image.juooo.com/group1/M00/02/45/rAoKNVvFUyiAJYdkAAAznnkz53A336.png', title:'舞台剧' },
-                { id:4, img:'http://image.juooo.com/group1/M00/01/9B/rAoKmVvFUzCANA78AAAuNmAUVOY761.png', title:'音乐剧' },
-                { id:5, img:'http://image.juooo.com/group1/M00/02/45/rAoKNVvFUzmASY4pAAAm76AQAHw370.png', title:'儿童' }
+                { id:1, img:'http://image.juooo.com/group1/M00/01/AF/rAoKmVvo2QuARfUgAAAZVrHX6Vg901.png', title:'演唱会' },
+                { id:2, img:'http://image.juooo.com/group1/M00/02/59/rAoKNVvo2RWAZ4RrAAAqgMt_hEM195.png', title:'音乐会' },
+                { id:3, img:'http://image.juooo.com/group1/M00/01/AF/rAoKmVvo2R2AfAI7AAAqv8R6CX0470.png', title:'舞台剧' },
+                { id:4, img:'http://image.juooo.com/group1/M00/02/59/rAoKNVvo2SmAOP2NAAAkgcvLRNA615.png', title:'音乐剧' },
+                { id:5, img:'http://image.juooo.com/group1/M00/01/AF/rAoKmVvo2TOAe_AqAAAmm6GZ4Xo145.png', title:'儿童' }
             ],
             activities_bottom:[
                 { id:1, img:'http://image.juooo.com/group1/M00/02/47/rAoKNVvIIbGAD-K0AAAOH9v_NJM654.png', title:'演出日历' },
@@ -65,7 +65,8 @@ export default {
     .home-body{
         padding: 1.16rem 0 0;
         .activities{
-            height: 5.026667rem;
+            box-sizing: border-box;
+            // height: 5.026667rem;
             width: 100%;
             padding: .266667rem .333333rem;
             .activities--top{
@@ -104,6 +105,7 @@ export default {
                         height: 1.32rem;
                     }
                     .bottom__item__title{
+                        width: 100%;
                         position: absolute;
                         bottom: 0;
                         top: 0;

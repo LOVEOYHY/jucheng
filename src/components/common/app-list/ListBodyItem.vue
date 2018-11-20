@@ -1,20 +1,26 @@
 <template>
     <div>
-        <div @click="goToDetails" class="listbody__item">
-            <img :src = "'http://image.juooo.com' + info.pic">
-            <div class="listbody__item--describe">
-                <div>{{info.schedular_name}}</div>
-                <p>{{info.show_time}}</p>
-                <p>[{{info.c_name}}]&nbsp;{{info.v_name}}</p>
-                <p>￥ {{info.min_price}}&nbsp;-&nbsp;{{info.max_price}}</p>
+        <div v-if = "info">
+            <div @click="goToDetails" class="listbody__item">
+                <img v-lazy = "'http://image.juooo.com' + info.pic">
+                <div class="listbody__item--describe">
+                    <div>{{info.schedular_name}}</div>
+                    <p>{{info.show_time}}</p>
+                    <p>[{{info.c_name}}]&nbsp;{{info.v_name}}</p>
+                    <p>￥ {{info.min_price}}&nbsp;-&nbsp;{{info.max_price}}</p>
+                </div>
             </div>
         </div>
+        <app-empty v-else></app-empty>
     </div>
 </template>
 
 <script>
-
+import AppEmpty from '@c/layout/AppEmpty'
 export default {
+    components: {
+        AppEmpty
+    },
     props: ['info'],
     methods: {
         goToDetails () {
@@ -65,6 +71,7 @@ export default {
                 color: rgb(153, 153, 153);
             }
             p:last-of-type{
+                // margin-top: .466667rem;
                 font-size: .426667rem;
                 color: rgb(255, 121, 25);
             }
