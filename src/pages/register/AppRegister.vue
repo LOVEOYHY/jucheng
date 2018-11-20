@@ -1,7 +1,7 @@
 <template>
     <div class="register">
         <p class="register__header">
-            <i class="fa fa-chevron-left fa-lg"></i>
+            <router-link tag="i" :to="{name:'home'}" class="fa fa-chevron-left fa-lg"></router-link>
             <router-link tag="span" :to="{name: 'login'}">登录</router-link>
         </p>
         <div class="register__content">

@@ -106,6 +106,7 @@ export default {
                 display: flex;
                 align-items: center;
                 p{
+                    width: 100%;
                     font-size: .32rem;
                     color: rgb(153, 153, 153);
                     height: .72rem;
